@@ -27,9 +27,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @forelse ($products as $product)
+                        @foreach ($products as $index => $product)
                         <tr>
-                            <th scope="row">{{ $loop->iteration }}</th>
+                            <th scope="row">{{ $index+1 }}</th>
                             <td>{{ $product->code }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->quantity }}</td>
@@ -47,13 +47,13 @@
                                 </form>
                             </td>
                         </tr>
-                        @empty
+                        @endforeach
                             <td colspan="6">
                                 <span class="text-danger">
                                     <strong>No Product Found!</strong>
                                 </span>
                             </td>
-                        @endforelse
+                        @end
                     </tbody>
                   </table>
 
